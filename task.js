@@ -14,22 +14,22 @@ const result = calculate(120);
 setTimeout(result, 3500); //This will not work as you expected
 setTimeout(calculate(120), 3500); //This will also not work as you expected
  */
-setTimeout(calculate, 3500, 120);
+setTimeout(calculate, 3500, 120);  //Now in this syntax, it will work
 
-/* setTimeout(
+setTimeout(
     function(second)
 {
     console.log(second*3);
 },
-3500
+3500, 500
 );
 
 setTimeout(
     () =>
     {
-        console.log(time*3);
+        console.log('Nothing');
     },
-    3500
-); */
+    5000
+);
 
 console.log('third');
