@@ -34,6 +34,22 @@ setTimeout(
 
 console.log('third');
 
+//SetInterval
+
+let countDown = 0;
+const interval = 1000;
+
+const stop = setInterval(() => {
+
+    // countDown++;
+    console.log(countDown++);
+    if(countDown > 10)
+    {
+        clearInterval(stop);
+    }
+    
+}, interval);
+
 //Task(2)
 const add = () =>
 {

@@ -27,3 +27,10 @@ WD_day_38.5_M38.5
 https://www.javascripttutorial.net/javascript-bom/javascript-settimeout/
 
 parameter in anonymous function
+
+https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage
+
+how does javascript work in browser
+
+when javascript acts asynchronous
+Ans: setTimeout, setInterval and fetch( )
