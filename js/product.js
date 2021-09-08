@@ -15,7 +15,7 @@ const addProduct = () =>
 
     const priceList = document.getElementById('price-list');
     const priceCount = document.createElement('li');
-    priceCount.innerHTML = `<li>${priceText}</li>`;
+    priceCount.innerHTML = `<li>${priceText} $</li>`;
     priceList.appendChild(priceCount);
 
     product.value = '';
