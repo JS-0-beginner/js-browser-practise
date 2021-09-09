@@ -14,73 +14,68 @@
     />
     <!-- style -->
     <style>
-      li
-      {
-        list-style: none;
+      li {
         font-size: 20px;
       }
-                  
     </style>
   </head>
   <body>
-    
     <div id="main-section" class="container d-flex justify-content-center p-5">
-
       <div id="input-section" class="input-group w-50">
         <span class="input-group-text">Product &nbsp;|&nbsp; Price</span>
         <input
           id="product"
           type="text"
           placeholder="Name"
-          aria-label="Product"
+          aria-label="Name"
           class="form-control"
         />
         <input
           id="price"
           type="text"
           placeholder="00.0 $"
-          aria-label="Price"
+          aria-label="00.0 $"
           class="form-control"
         />
-  
       </div>
-        
-          <div class="">
-            <button id="add-btn" onclick="addProduct()" type="button" class="btn btn-outline-secondary ms-2">add</button>
-          </div>
+
+      <div class="">
+        <button
+          id="add-btn"
+          onclick="addProduct()"
+          type="button"
+          class="btn btn-outline-secondary ms-2"
+        >
+          add
+        </button>
+      </div>
     </div>
-      
 
-      <div class="container d-flex justify-content-center" id="the-list">
+    <!----------------------- List ----------------------->
+    <div class="container d-flex justify-content-center" id="the-list">
 
-        <div>
-          
-          <ol id="product-list">
-            <h4><u>Product</u></h4>
-            
-          </ol>
-        </div>
-  
-        <div class="ps-5 ms-5 me-2 pe-2">
-          
-          <ul id="price-list">
-            <h4><u>Price</u></h4>
-           
-          </ul>
-        </div>
-  
-        <div class="text-center ps-5 ms-5">
-          <button onclick="order()" type="button" class="btn btn-outline-secondary">Order</button>
-        </div>
-  
+      <div>
+        <ul id="product-list">
+          <h4><u>Product</u></h4>
+        </ul>
       </div>
 
-    
-      
+      <div class="ps-5 ms-5 me-2 pe-2">
+        <ul style="list-style: none" id="price-list">
+          <h4><u>Price</u></h4>
+        </ul>
+      </div>
 
-        
-    
-
+      <div class="text-center ps-5 ms-5">
+        <button
+          onclick="order()"
+          type="button"
+          class="btn btn-outline-secondary"
+        >
+          Order
+        </button>
+      </div>
+    </div>
 
     <!-- bootstrap js bundle -->
     <script
