@@ -15,12 +15,31 @@ const addProduct = () =>
     {
       return;
     }
-    else
-    {
+            
+    product.value = '';
+    price.value = '';
+    
+    displayList(productText,priceText);
+
+    //Adding Order on local storage
+    addOrder(productText);
+      
+
+}
+/*-------------------------------------------------------------------------------*\
+  /////////////////////// (2)Display products & prices \\\\\\\\\\\\\\\\\\\\\\\\\\\
+\*-------------------------------------------------------------------------------*/
+const displayList = (productText,priceText) =>
+{
     const productList = document.getElementById('product-list');
     const productCount = document.createElement('li');
-    productCount.innerHTML = `<li>${productText}</li>`;
+    productCount.innerHTML = productText;
     productList.appendChild(productCount);
+
+    const priceList = document.getElementById('price-list');
+    const priceCount = document.createElement('li');
+    priceCount.innerHTML = priceText;
+    priceList.appendChild(priceCount); 
 
     /*
     //Caught Mistake
@@ -35,19 +54,10 @@ const addProduct = () =>
     priceCount.innerHTML = `<li>${priceText} $</li>`;
     priceList.appendChild(priceCount); 
     */
-    }
-    
-    product.value = '';
-    price.value = '';
-    
-    
-    //Adding Order on local storage
-    addOrder(productText);
-      
 
 }
 /*-------------------------------------------------------------------------------*\
-  //////////////////// (2)Getting Order on local storage \\\\\\\\\\\\\\\\\\\\\\\\
+  //////////////////// (3)Getting Order on local storage \\\\\\\\\\\\\\\\\\\\\\\\
 \*-------------------------------------------------------------------------------*/
  const getOrder = () =>
  {
@@ -64,7 +74,7 @@ const addProduct = () =>
    return orderObject;
  }
 /*-------------------------------------------------------------------------------*\
-  ////////////////////// (3)Adding Order on local storage \\\\\\\\\\\\\\\\\\\\\\\\
+  ////////////////////// (4)Adding Order on local storage \\\\\\\\\\\\\\\\\\\\\\\\
 \*-------------------------------------------------------------------------------*/
 const addOrder = (productText) =>
 {
@@ -82,7 +92,7 @@ const addOrder = (productText) =>
 
 
 /*-------------------------------------------------------------------------------*\
-  //////////////////// (4)Taking Order & Closing UI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+  //////////////////// (5)Taking Order & Closing UI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
 \*-------------------------------------------------------------------------------*/
 const order = () =>
 {
