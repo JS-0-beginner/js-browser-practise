@@ -84,20 +84,12 @@ const addOrder = (productText,priceText) =>
   takeOrder[productText] = 1; //Last Stoppage
   takeOrder[priceText] = 1;
 
-  /* if(takeOrder[productText])
-  {
-    takeOrder[productText] = 1;
-  } */
-
   console.log(takeOrder);
   
   const stringifiedTakeOrder = JSON.stringify(takeOrder);
   localStorage.setItem('Order',stringifiedTakeOrder); //Local-Storage
-
   
 }
-
-
 
 /*-------------------------------------------------------------------------------*\
   //////////////////// (5)Taking Order & Closing UI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
