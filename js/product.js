@@ -19,6 +19,7 @@ const addProduct = () =>
     product.value = '';
     price.value = '';
     
+    //Display The-List
     displayList(productText,priceText);
 
     //Adding Order on local storage
@@ -83,10 +84,13 @@ const addOrder = (productText) =>
   {
     takeOrder[productText] = 1;
   }
-  console.log(takeOrder);
 
-  const stringifiedTakeOrder = JSON.stringify(takeOrder);
-  localStorage.setItem('takeOrder',stringifiedTakeOrder); //Local-Storage
+  console.log(takeOrder);
+  
+  /* const stringifiedTakeOrder = JSON.stringify(takeOrder);
+  localStorage.setItem('takeOrder',stringifiedTakeOrder); //Local-Storage */
+
+  
 }
 
 
