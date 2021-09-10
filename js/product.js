@@ -1,5 +1,8 @@
 console.log('Product & Price');
 
+/*-------------------------------------------------------------------------------*\
+  /////////////////////// (1)Input products & prices \\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\*-------------------------------------------------------------------------------*/
 const addProduct = () =>
 {
     const product = document.getElementById('product');
@@ -7,23 +10,80 @@ const addProduct = () =>
     
     const price = document.getElementById('price');
     const priceText = price.value;
-    
+
+    if(!productText || !priceText)
+    {
+      return;
+    }
+    else
+    {
     const productList = document.getElementById('product-list');
     const productCount = document.createElement('li');
     productCount.innerHTML = `<li>${productText}</li>`;
     productList.appendChild(productCount);
 
+    /*
+    //Caught Mistake
+
     const priceList = document.getElementById('price-list');
     const priceCount = document.createElement('li');
-    priceCount.innerHTML = `<li>${priceText} $</li>`;
-    priceList.appendChild(priceCount);
 
+    //Mistakes 
+    //(1)creating </li> with another </li> in innerHTML
+    //(2)that's why </ol> orders are breaking down with each other, when you're adding extra </li> dynamically
+    
+    priceCount.innerHTML = `<li>${priceText} $</li>`;
+    priceList.appendChild(priceCount); 
+    */
+    }
+    
     product.value = '';
     price.value = '';
+    
+    
+    //Adding Order on local storage
+    addOrder(productText);
       
 
 }
+/*-------------------------------------------------------------------------------*\
+  //////////////////// (2)Getting Order on local storage \\\\\\\\\\\\\\\\\\\\\\\\
+\*-------------------------------------------------------------------------------*/
+ const getOrder = () =>
+ {
+   const takeOrder = localStorage.getItem('takeOrder'); //Local-Storage
+   let orderObject;
+   if(takeOrder)
+   {
+     orderObject = JSON.parse(takeOrder);
+   }
+   else
+   {
+     orderObject = {};
+   }
+   return orderObject;
+ }
+/*-------------------------------------------------------------------------------*\
+  ////////////////////// (3)Adding Order on local storage \\\\\\\\\\\\\\\\\\\\\\\\
+\*-------------------------------------------------------------------------------*/
+const addOrder = (productText) =>
+{
+  const takeOrder = getOrder();
+  if(takeOrder[productText])
+  {
+    takeOrder[productText] = 1;
+  }
+  console.log(takeOrder);
 
+  const stringifiedTakeOrder = JSON.stringify(takeOrder);
+  localStorage.setItem('takeOrder',stringifiedTakeOrder); //Local-Storage
+}
+
+
+
+/*-------------------------------------------------------------------------------*\
+  //////////////////// (4)Taking Order & Closing UI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
+\*-------------------------------------------------------------------------------*/
 const order = () =>
 {
     const list = document.getElementById('the-list');
@@ -43,7 +103,6 @@ const order = () =>
     <p>Your order has been send to the Local Storage, <strong><a href="">Reload</a></strong> the page for new order</p>
   </div>`;
     list.appendChild(message);
-
-    
-
+     
 }
+
