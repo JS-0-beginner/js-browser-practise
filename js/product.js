@@ -23,7 +23,7 @@ const addProduct = () =>
     displayList(productText,priceText);
 
     //Adding Order on local storage
-    addOrder(productText);
+    addOrder(productText,priceText);
       
 
 }
@@ -62,7 +62,7 @@ const displayList = (productText,priceText) =>
 \*-------------------------------------------------------------------------------*/
  const getOrder = () =>
  {
-   const takeOrder = localStorage.getItem('takeOrder'); //Local-Storage
+   const takeOrder = localStorage.getItem('Order'); //Local-Storage
    let orderObject;
    if(takeOrder)
    {
@@ -77,18 +77,22 @@ const displayList = (productText,priceText) =>
 /*-------------------------------------------------------------------------------*\
   ////////////////////// (4)Adding Order on local storage \\\\\\\\\\\\\\\\\\\\\\\\
 \*-------------------------------------------------------------------------------*/
-const addOrder = (productText) =>
+const addOrder = (productText,priceText) =>
 {
   const takeOrder = getOrder();
-  if(takeOrder[productText])
+
+  takeOrder[productText] = 1; //Last Stoppage
+  takeOrder[priceText] = 1;
+
+  /* if(takeOrder[productText])
   {
     takeOrder[productText] = 1;
-  }
+  } */
 
   console.log(takeOrder);
   
-  /* const stringifiedTakeOrder = JSON.stringify(takeOrder);
-  localStorage.setItem('takeOrder',stringifiedTakeOrder); //Local-Storage */
+  const stringifiedTakeOrder = JSON.stringify(takeOrder);
+  localStorage.setItem('Order',stringifiedTakeOrder); //Local-Storage
 
   
 }
