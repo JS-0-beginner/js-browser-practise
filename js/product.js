@@ -24,8 +24,7 @@ const addProduct = () =>
 
     //Adding Order on local storage
     addOrder(productText,priceText);
-      
-
+  
 }
 /*-------------------------------------------------------------------------------*\
   /////////////////////// (2)Display products & prices \\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -79,17 +78,17 @@ const displayList = (productText,priceText) =>
 \*-------------------------------------------------------------------------------*/
 const addOrder = (productText,priceText) =>
 {
-  const takeOrder = getOrder();
-
-  takeOrder[productText] = 1; //Last Stoppage
-  takeOrder[priceText] = 1;
+  
+  const takeOrder = { product: productText, price: priceText};  
 
   console.log(takeOrder);
   
   const stringifiedTakeOrder = JSON.stringify(takeOrder);
   localStorage.setItem('Order',stringifiedTakeOrder); //Local-Storage
+
+  getOrder();
   
-}
+} 
 
 /*-------------------------------------------------------------------------------*\
   //////////////////// (5)Taking Order & Closing UI \\\\\\\\\\\\\\\\\\\\\\\\\\\\\
@@ -113,6 +112,9 @@ const order = () =>
     <p>Your order has been send to the Local Storage, <strong><a href="">Reload</a></strong> the page for new order</p>
   </div>`;
     list.appendChild(message);
+
+    product.value = '';
+    price.value = '';
      
 }
 
